@@ -1,7 +1,6 @@
 import { List, Contact, Button, ContactData } from './ContactList.styled';
 
 export default function ContactList({ contacts, onDeleteContact }) {
-  console.log(contacts);
   return (
     <List>
       {contacts.map(({ name, id, phone }) => (
