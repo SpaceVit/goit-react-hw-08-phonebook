@@ -15,6 +15,7 @@ export const Link = styled(NavLink)`
   color: black;
   text-decoration: none;
   margin-bottom: 3px;
+  margin-right: 5px;
   &.active {
     color: white;
     text-decoration: underline;

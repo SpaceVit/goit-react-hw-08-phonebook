@@ -18,6 +18,7 @@ export default function ContactsPage() {
   const filter = useSelector(getFilter);
 
   const { data: contacts } = useGetContactsQuery();
+  console.log(contacts);
   const [deleteContact] = useDeleteContactMutation();
   const [addContact] = useAddContactMutation();
 
