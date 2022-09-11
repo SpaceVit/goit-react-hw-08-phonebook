@@ -7,10 +7,11 @@ import {
   useAddContactMutation,
 } from '../../redux';
 
-import ContactForm from '../../components/ContactForm/ContactForm';
-import ContactList from '../../components/ContactList/ContactList';
-import Filter from '../../components/Filter/Filter';
-import { Box } from '../../components/Box';
+import ContactForm from './../../components/ContactForm';
+import ContactList from './../../components/ContactList';
+import Filter from './../../components/Filter';
+
+import { Box } from './../../components/Box';
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export default function ContactsPage() {
   const [deleteContact] = useDeleteContactMutation();
   const [addContact] = useAddContactMutation();
 
-  const addToContact = ({ name, number: phone }) => {
+  const addToContact = ({ name, number }) => {
     const lowerCasedName = name.toLowerCase();
 
     let added = contacts.find(
@@ -29,7 +30,7 @@ export default function ContactsPage() {
 
     const contact = {
       name,
-      phone,
+      number,
     };
 
     if (added) {

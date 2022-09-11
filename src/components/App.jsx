@@ -1,8 +1,11 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import AppBar from './AppBar';
 import { Box } from './Box';
 import { Container } from './App.styled';
+import { authOperations } from 'redux/auth';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
@@ -10,6 +13,10 @@ const SignUpPage = lazy(() => import('../pages/SignUpPage/SignUpPage'));
 const ContactsPage = lazy(() => import('../pages/ContactsPage/ContactsPage'));
 
 export default function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(authOperations.getCurrentUser());
+  }, [dispatch]);
   return (
     <Box as="main" py={3} width="100%">
       <Container>

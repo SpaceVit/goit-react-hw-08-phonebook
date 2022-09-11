@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const Container = styled.div`
-  width: auto;
+export const Registration = styled.div`
+  width: 30%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-bottom: 2px solid black;
 `;
 
 export const Link = styled(NavLink)`

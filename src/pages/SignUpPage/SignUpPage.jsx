@@ -1,7 +1,10 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { authOperations } from 'redux/auth';
 import { SignUpForm, Label, Input, Button } from './SignUpPage.styled';
 
 export default function SignUpPage() {
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -22,6 +25,7 @@ export default function SignUpPage() {
 
   const hendleSubmit = e => {
     e.preventDefault();
+    dispatch(authOperations.register({ name, email, password }));
     setName('');
     setEmail('');
     setPassword('');

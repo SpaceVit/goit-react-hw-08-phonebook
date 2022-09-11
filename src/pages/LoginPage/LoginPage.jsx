@@ -1,7 +1,10 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { authOperations } from 'redux/auth';
 import { LoginForm, Label, Input, Button } from './LoginPage.styled';
 
 export default function LoginPage() {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -19,6 +22,7 @@ export default function LoginPage() {
 
   const hendleSubmit = e => {
     e.preventDefault();
+    dispatch(authOperations.login({ email, password }));
     setEmail('');
     setPassword('');
   };
